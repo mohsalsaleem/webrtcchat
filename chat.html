@@ -20,7 +20,7 @@
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <!--li> <a href="about.html">About</a></li--!>
+            
             <li> <a href="index.html">Home</a> </li>
           </ul>
         </div>
@@ -55,38 +55,7 @@
       <div class="push">
       </div>
     </div>
-	<textarea id="dataChannelSend" ></textarea>
-<textarea id="dataChannelReceive" ></textarea>
-
-<div id="buttons">
-  <button id="startButton">Start</button>
-  <button id="sendButton">Send</button>
-  <button id="closeButton">Stop</button>
-</div>
-<script>
-function sendData(){
-  var data = document.getElementById("dataChannelSend").value;
-  sendChannel.send(data);
-}
-...
-localPeerConnection = new RTCPeerConnection(servers,
-  {optional: [{RtpDataChannels: true}]});
-sendChannel = localPeerConnection.createDataChannel("sendDataChannel",
-  {reliable: false});
-sendChannel.onopen = handleSendChannelStateChange;
-sendChannel.onclose = handleSendChannelStateChange;
-...
-remotePeerConnection = new RTCPeerConnection(servers,
-  {optional: [{RtpDataChannels: true}]});
-function gotReceiveChannel(event) {
-  receiveChannel = event.channel;
-  receiveChannel.onmessage = gotMessage;
-}
-...
-remotePeerConnection.ondatachannel = gotReceiveChannel;
-function gotMessage(event) {
-  document.getElementById("dataChannelReceive").value = event.data;
-}
+	
 </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="js/latest.js"></script>
